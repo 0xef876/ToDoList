@@ -51,6 +51,15 @@ h1 {font-family: 'Merriweather', serif;}
     vertical-align: middle;
 }
 .todos .write > button {margin-right:-2px; vertical-align: middle;}
+.todos .edit {display:inline-block; background-color:#f3f2eb; padding:10px 15px; border-radius:30px; margin-left:-20px}
+.todos .edit > input {
+    font-size:24px;
+    border:none; 
+    padding:5px 10px; 
+    background-color: transparent;
+    vertical-align: middle;
+}
+.todos .edit > button {margin-right:-2px; vertical-align: middle;}
 .todos ul > li {margin:10px 0}
 .todos ul > li > span {padding-right:60px; position: relative;}
 .todos ul > li > span:hover b {visibility: visible; opacity:1;}
