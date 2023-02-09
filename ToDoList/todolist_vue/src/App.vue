@@ -21,6 +21,7 @@ export default {
 
 <style>
 
+
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;900&family=Noto+Sans+KR:wght@100;400&display=swap');
 /* reset */
 * {margin:0; padding:0}

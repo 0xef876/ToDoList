@@ -5,14 +5,14 @@
     <main>
       <div class="todos">
         <div class="write">
-          <input type="text"/>
-          <button class="btn add">Add</button>
+          <input type="text" v-model="content"/>
+          <button class="btn add" v-on:click="addItemText">Add</button>
         </div>
         <ul class="list" v-for="data in todos" :key="data.text">
-          <li id = "text">
-            <i class="far fa-check-square"></i>
-            {{ data.text }}
+          <li id = "text" >
+            <i :class="[data.state ==='yet' ? 'far ' : 'fas ', 'fa-check-square']"></i>
             <span>
+              {{ data.text }}
               <b>
                 <a href="">Edit</a>
                 <a href="">Del</a>
@@ -29,13 +29,21 @@
 export default {
   data(){
     return {
+      content : '',
   todos:[
         {text: '공부하기', state: 'yet'},
         {text: '운동하기', state: 'done'},
         {text: '글쓰기', state: 'done'},
       ]
-  }}
-
+  }},
+  methods:{
+  addItemText()
+  {
+    this.todos.push({text: this.content, state : 'yet'})
+    this.content = ''
+  }
+  
+  }
 
 }
 
