@@ -5,7 +5,7 @@
     <main>
       <div class="todos">
         <div class="write">
-          <input type="text" v-model="content"/>
+          <input type="text" v-model="content" @keyup.enter="addItemText" ref="writeArea"/>
           <button class="btn add" v-on:click="addItemText">Add</button>
         </div>
         <ul class="list" v-for="data in todos" :key="data.text">
@@ -44,6 +44,10 @@ export default {
   }
   
   }
+,mounted()
+{
+  this.$refs.writeArea.focus();
+}
 
 }
 
