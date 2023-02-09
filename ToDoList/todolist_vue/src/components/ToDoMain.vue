@@ -8,9 +8,9 @@
           <input type="text" v-model="content" @keyup.enter="addItemText" ref="writeArea"/>
           <button class="btn add" v-on:click="addItemText">Add</button>
         </div>
-        <ul class="list" v-for="data in todos" :key="data.text">
+        <ul class="list" v-for=" (data,i) in todos" :key="data.text">
           <li id = "text" >
-            <i :class="[data.state ==='yet' ? 'far ' : 'fas ', 'fa-check-square']"></i>
+          <i @click="box_check(i)" :class="[data.state === 'yet' ? 'far' : 'fas', 'fa-check-square']"></i>
             <span>
               {{ data.text }}
               <b>
@@ -41,15 +41,24 @@ export default {
   {
     this.todos.push({text: this.content, state : 'yet'})
     this.content = ''
-  }
+  },
   
-  }
-,mounted()
+  box_check(idx)
+  {
+    if (this.todos[idx].state === 'yet')
+    {
+      this.todos[idx].state = 'done'
+    }
+    else if (this.todos[idx].state ==='done')
+    {
+      this.todos[idx].state = 'yet'
+    }
+  },
+  
+  },mounted()
 {
   this.$refs.writeArea.focus();
-}
-
-}
+}}
 
 </script>
 
